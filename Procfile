@@ -1,1 +1,1 @@
-web: python lyric.py
+web: python lyricbot.py
