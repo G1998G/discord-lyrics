@@ -57,21 +57,24 @@ async def l(ctx, *args):
     '''
     res = getsource(f'https://www.google.com/search?q={"%20".join(args)}%20歌詞')
     songname_and_lyric = scrape(res,attrs={"class":"BNeawe tAd8D AP7Wnd"} )
-    songname = songname_and_lyric[0]
-    lyric = songname_and_lyric[-1].splitlines()
-    # リストの２個目がauthor name
-    authorname = scrape(res,attrs={'class':"BNeawe s3v9rd AP7Wnd"})[1]
-    print(f'🌟{lyric},{authorname}')
-    lyric1 = "".join( list(map(lambda x:x+"\n",lyric)) )
-    if len(lyric1) > 1000:
-        print(f'{len(lyric1)}')
-        lyric1 = lyric1[0:1000] + '\n続きはURL'
+    if not songname_and_lyric:
+        await ctx.send(f'{" ".join(args)}で検索したところ見つけられませんでした。。。')
+    else:
+        songname = songname_and_lyric[0]
+        lyric = songname_and_lyric[-1].splitlines()
+        # リストの２個目がauthor name
+        authorname = scrape(res,attrs={'class':"BNeawe s3v9rd AP7Wnd"})[1]
+        print(f'🌟{lyric},{authorname}')
+        lyric1 = "".join( list(map(lambda x:x+"\n",lyric)) )
+        if len(lyric1) > 1000:
+            print(f'{len(lyric1)}')
+            lyric1 = lyric1[0:1000] + '\n続きはURL'
 
 
-    embed = discord.Embed(title=f"アーティスト名:{authorname}\n曲名:{songname}",color=discord.Colour.green(),type = 'rich')
-    embed.add_field(name='歌詞',value=f'{lyric1}',inline=False)
-    embed.add_field(name='URL',value=f'\nhttps://www.google.com/search?q={"%20".join(args)}%20歌詞',inline=False)
-    await ctx.send(embed=embed)
+        embed = discord.Embed(title=f"アーティスト名:{authorname}\n曲名:{songname}",color=discord.Colour.green(),type = 'rich')
+        embed.add_field(name='歌詞',value=f'{lyric1}',inline=False)
+        embed.add_field(name='URL',value=f'\nhttps://www.google.com/search?q={"%20".join(args)}%20歌詞',inline=False)
+        await ctx.send(embed=embed)
 
 bot.run('ODI3ODA3ODU2NjUxNzk2NDkw.YGgaJA.xkmjNtPM3P9kmZ9kNkrjctQIM6k')
-# TOKENにdiscord bot TOKENを入力する
+    # TOKENにdiscord bot TOKENを入力する
