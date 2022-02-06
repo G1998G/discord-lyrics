@@ -62,8 +62,12 @@ async def l(ctx, *args):
     # リストの２個目がauthor name
     authorname = scrape(res,attrs={'class':"BNeawe s3v9rd AP7Wnd"})[1]
     print(f'🌟{lyric},{authorname}')
-    lyric1 = list(map(lambda x:x+"\n",lyric))
-    print(lyric1)
+    lyric1 = "".join( list(map(lambda x:x+"\n",lyric)) )
+    if len(lyric1) > 1000:
+        print(f'{len(lyric1)}')
+        lyric1 = lyric1[0:1000] + '\n続きはURL'
+
+
     embed = discord.Embed(title=f"アーティスト名:{authorname}\n曲名:{songname}",color=discord.Colour.green(),type = 'rich')
     embed.add_field(name='歌詞',value=f'{"".join(lyric1)}',inline=False)
     embed.add_field(name='URL',value=f'\nhttps://www.google.com/search?q={"%20".join(args)}%20歌詞',inline=False)
