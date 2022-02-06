@@ -3,7 +3,6 @@ from discord.utils import get
 import discord
 import requests
 from bs4 import BeautifulSoup
-import matplotlib.pyplot as plt
 import html5lib
 from datetime import datetime
 import re
