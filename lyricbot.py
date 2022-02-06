@@ -223,5 +223,5 @@ async def scloud(ctx, *args):
     net_image = make_wordcloud(wordlistlist)
     await ctx.send(file=net_image,content=f'{ctx.member.name}さん提供ソースからワードクラウドを作りました')
 
-bot.run('TOKEN')
+bot.run('ODI3ODA3ODU2NjUxNzk2NDkw.YGgaJA.xkmjNtPM3P9kmZ9kNkrjctQIM6k')
 # TOKENにdiscord bot TOKENを入力する
