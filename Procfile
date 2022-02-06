@@ -1,1 +1,1 @@
-web: python3.10.2 lyricbot.py
+web: python lyricbot.py
