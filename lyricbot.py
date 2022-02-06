@@ -69,7 +69,7 @@ async def l(ctx, *args):
 
 
     embed = discord.Embed(title=f"アーティスト名:{authorname}\n曲名:{songname}",color=discord.Colour.green(),type = 'rich')
-    embed.add_field(name='歌詞',value=f'{"".join(lyric1)}',inline=False)
+    embed.add_field(name='歌詞',value=f'{lyric1}',inline=False)
     embed.add_field(name='URL',value=f'\nhttps://www.google.com/search?q={"%20".join(args)}%20歌詞',inline=False)
     await ctx.send(embed=embed)
 
