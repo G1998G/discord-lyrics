@@ -76,5 +76,5 @@ async def l(ctx, *args):
         embed.add_field(name='URL',value=f'\nhttps://www.google.com/search?q={"%20".join(args)}%20歌詞',inline=False)
         await ctx.send(embed=embed)
 
-bot.run('ODI3ODA3ODU2NjUxNzk2NDkw.YGgaJA.xkmjNtPM3P9kmZ9kNkrjctQIM6k')
+bot.run('TOKEN')
     # TOKENにdiscord bot TOKENを入力する
